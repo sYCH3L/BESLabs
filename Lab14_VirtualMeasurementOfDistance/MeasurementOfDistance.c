@@ -33,6 +33,7 @@
 #include "..//tm4c123gh6pm.h"
 #include "Nokia5110.h"
 #include "TExaS.h"
+#include "string.h"
 
 void EnableInterrupts(void);  // Enable interrupts
 
@@ -50,16 +51,28 @@ unsigned long Flag;       // 1 means valid Distance, 0 means Distance is empty
 // Input: sample  12-bit ADC sample
 // Output: 32-bit distance (resolution 0.001cm)
 unsigned long Convert(unsigned long sample){
-  return 0;  // replace this line with real code
+	
+  return ((500*sample)>>10)+1;
+
 }
 
 // Initialize SysTick interrupts to trigger at 40 Hz, 25 ms
 void SysTick_Init(unsigned long period){
+	NVIC_ST_CTRL_R = 0;         // disable SysTick during setup
+  NVIC_ST_RELOAD_R = period-1;// reload value
+  NVIC_ST_CURRENT_R = 0;      // any write to current clears it
+  NVIC_SYS_PRI3_R = (NVIC_SYS_PRI3_R&0x00FFFFFF)|0x40000000;           
+  NVIC_ST_CTRL_R = 0x07; // enable SysTick with core clock and interrupts
   
 }
 // executes every 25 ms, collects a sample, converts and stores in mailbox
 void SysTick_Handler(void){ 
-  
+  GPIO_PORTF_DATA_R ^= 0x02;     
+	GPIO_PORTF_DATA_R ^= 0x02;      
+	ADCdata = ADC0_In();						
+	Distance = Convert(ADCdata);		
+	Flag = 1;												
+	GPIO_PORTF_DATA_R ^= 0x02;      
 }
 
 //-----------------------UART_ConvertDistance-----------------------
@@ -74,8 +87,20 @@ void SysTick_Handler(void){
 // 2210 to "2.210 cm"
 //10000 to "*.*** cm"  any value larger than 9999 converted to "*.*** cm"
 void UART_ConvertDistance(unsigned long n){
-// as part of Lab 11 you implemented this function
- 
+	if (n >= 10000) 
+	{
+		strcpy((char *) String, "*.***");
+	}
+	else
+	{
+	String[0] = (((n%10000)/1000) + 0x30);
+	String[1] = '.';
+	String[2] = (((n%1000)/100) + 0x30);
+	String[3] = (((n%100)/10) + 0x30);
+  String[4] = ((n%10) + 0x30);
+	
+	}
+  strcat((char *) String, " cm");
 }
 
 // main1 is a simple main program allowing you to debug the ADC interface
@@ -105,16 +130,19 @@ int main2(void){
 // you should use this main to build the final solution with interrupts and mailbox
 int main(void){ 
   TExaS_Init(ADC0_AIN1_PIN_PE2, UART0_Emulate_Nokia5110_NoScope);
-
-// initialize ADC0, channel 1, sequencer 3
-// initialize Nokia5110 LCD (optional)
-// initialize SysTick for 40 Hz interrupts
-// initialize profiling on PF1 (optional)
+  ADC0_Init();    // initialize ADC0, channel 1, sequencer 3
+  Nokia5110_Init();             // initialize Nokia5110 LCD
+	SysTick_Init(16000 * 25 * 5);  //initialize SysTick for 40 Hz interrupts
 
   EnableInterrupts();
 // print a welcome message  (optional)
   while(1){ 
-// read mailbox
-// output to Nokia5110 LCD (optional)
+		Flag = 0;
+		if(Flag)
+		{
+		UART_ConvertDistance(Distance); 
+		Nokia5110_SetCursor(0, 0);
+		Nokia5110_OutString(String); 
+		}
   }
 }
