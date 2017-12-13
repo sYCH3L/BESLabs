@@ -1,0 +1,42 @@
+Dependencies for Project 'getWeather', Target 'esp8266': (DO NOT MODIFY !)
+F (.\startup.s)(0x54F7F722)(--cpu Cortex-M4 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
+F (.\main.c)(0x5A307FE2)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\ctype.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\time.h)(0x5A307FFD)
+I (tm4c123gh6pm.h)(0x51D42A62)
+I (pll.h)(0x55ED6874)
+I (UART.h)(0x56A76698)
+I (esp8266.h)(0x57F21F3C)
+I (LED.h)(0x55FB0AA2)
+I (Nokia5110.h)(0x57F4D694)
+F (.\pll.c)(0x57F4E0B1)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\pll.o --omf_browse .\pll.crf --depend .\pll.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (tm4c123gh6pm.h)(0x51D42A62)
+F (.\esp8266.c)(0x5A285502)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\esp8266.o --omf_browse .\esp8266.crf --depend .\esp8266.d)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7FD94)
+I (tm4c123gh6pm.h)(0x51D42A62)
+I (esp8266.h)(0x57F21F3C)
+I (UART.h)(0x56A76698)
+I (Nokia5110.h)(0x57F4D694)
+F (.\UART.c)(0x57F4E0CD)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (tm4c123gh6pm.h)(0x51D42A62)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7FD94)
+I (FIFO.h)(0x5554835C)
+I (UART.h)(0x56A76698)
+F (.\LED.c)(0x57F4E0C4)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (tm4c123gh6pm.h)(0x51D42A62)
+F (.\Nokia5110.c)(0x57F4E0BB)(-c --cpu Cortex-M4 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I.. -I..\..\.. --C99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\TI\TM4C123-Drvmdk -DPART_TM4C123GH6PM -DTM4C123GH6PM-o .\nokia5110.o --omf_browse .\nokia5110.crf --depend .\nokia5110.d)
+I (Nokia5110.h)(0x57F4D694)
+I (tm4c123gh6pm.h)(0x51D42A62)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)

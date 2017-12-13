@@ -3,10 +3,39 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\md5salt\Desktop\Lab16_getWeather_v1.1\Lab16_getWeather\getWeather.uvproj
-Project File Date:  10/05/2016
+C:\Users\md5salt\Documents\GitHub\BESLabs\Lab16_getWeather\getWeather.uvproj
+Project File Date:  12/07/2017
 
 <h2>Output:</h2>
+Build target 'esp8266'
+compiling main.c...
+main.c(52): error:  #79: expected a type specifier
+  time(&curtime);
+main.c(52): error:  #260-D: explicit type is missing ("int" assumed)
+  time(&curtime);
+main.c(52): error:  #147-D: declaration is incompatible with "time_t time(time_t *)" (declared at line 140 of "C:\Keil\ARM\ARMCC\bin\..\include\time.h")
+  time(&curtime);
+main.c: 0 warnings, 3 errors
+".\esp8266.axf" - 3 Error(s), 0 Warning(s).
+Target not created
 </pre>
 </body>
 </html>
+
+main.c: 0 warnings, 4 errors
+".\esp8266.axf" - 4 Error(s), 0 Warning(s).
+Target not created
+ar*)WindDirection);
+main.c(241): error:  #65: expected a ";"
+                          Nokia5110_OutString((unsigned char*)Temperature); 
+main.c(246): error:  #65: expected a ";"
+                          Nokia5110_OutString((unsigned char*)Humidity); 
+main.c(251): error:  #65: expected a ";"
+                                Nokia5110_OutString((unsigned char*)Pressure); 
+main.c(256): error:  #65: expected a ";"
+                                delay(5);
+main.c(262): error:  #65: expected a ";"
+                                delay(5);
+main.c: 0 warnings, 10 errors
+".\esp8266.axf" - 10 Error(s), 0 Warning(s).
+Target not created
